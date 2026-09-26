@@ -1,0 +1,4 @@
+interface:
+  display_name: "Produce Avatar IP Systems"
+  short_description: "Build modular avatars, scenes, backgrounds, and loops"
+  default_prompt: "Use $produce-avatar-ip-system to turn my idea into a reusable avatar IP system. First propose and produce base-IP directions and stop for approval; then create the approved palette, outfits, props, wearables, and combinations and stop again; then produce transparent scene subjects with editable backgrounds and previews; finally test one approved animation before batching videos. Keep exact tool/model provenance, Figma/package state, and QA so another agent can resume."

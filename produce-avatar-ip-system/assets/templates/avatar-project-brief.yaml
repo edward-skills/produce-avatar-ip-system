@@ -1,0 +1,103 @@
+# Copy into a task-specific output directory and replace example values.
+project:
+  name: avatar-ip-project
+  owner: ""
+  purpose: "Reusable digital-employee IP system"
+  primary_use_cases:
+    - avatar-picker
+    - profile
+    - notification
+  target_display_sizes_px: [48, 96, 300]
+  non_goals:
+    - application-code-integration
+    - pull-request
+
+brand:
+  qualities: [friendly, competent, bright, premium]
+  palette:
+    primary: "#1EEAEA"
+    secondary: "#1381FF"
+    accents: ["#6863FF", "#FF7D03", "#34A853"]
+    neutrals: ["#FFFFFF", "#1F1F23"]
+  prohibited:
+    - unrequested-logo
+    - unrequested-text
+    - halo
+    - watermark
+
+style:
+  preset: soft-anime-tech-3d
+  version: style-v1
+  supplied_reference: ""
+  custom_overrides: {}
+
+personas:
+  - id: p01
+    immutable_identity: ""
+    approved_source: ""
+  - id: p02
+    immutable_identity: ""
+    approved_source: ""
+
+framing:
+  crop: upper-body
+  aspect_ratio: "1:1"
+  static_canvas_px: [720, 720]
+  motion_canvas_px: [768, 768]
+  camera: front-facing
+  anchors:
+    hair_crown_y_pct: 5
+    eye_line_y_pct: 29.5
+    chin_y_pct: 41.5
+    shoulder_line_y_pct: 49.5
+    lower_crop_y_pct: 96
+
+matrix:
+  colors: []
+  outfits: []
+  props: []
+  scenes: []
+  states: [default]
+  backgrounds: [transparent]
+  motion_modes: [static]
+  combinations_required: []
+
+background_contract:
+  transparent_subject_master: true
+  editable_background: true
+  composed_preview: true
+  baked_video_background: "only when the selected video model cannot preserve alpha"
+
+outputs:
+  static_master: png
+  optimized_static: webp
+  motion_primary: webm
+  motion_fallback: mp4
+  motion_audio: silent
+  contact_sheets: true
+  figma: true
+  manifest: true
+  qa_report: true
+
+figma:
+  file_url: ""
+  file_key: ""
+  target_node_id: ""
+  update_in_place: true
+
+generation:
+  preferred_image_surface: ""
+  preferred_image_model: ""
+  preferred_video_surface: "Aident Loadout / Fal"
+  preferred_video_model: "minimax/h3-max/image-to-video"
+  sample_budget_usd: null
+  batch_budget_usd: null
+  max_concurrency: 3
+
+approval_gates:
+  - concept-direction
+  - identity-masters
+  - representative-static
+  - representative-motion
+  - full-matrix
+  - final-package

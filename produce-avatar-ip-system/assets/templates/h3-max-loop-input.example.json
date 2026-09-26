@@ -1,0 +1,14 @@
+{
+  "model": "minimax/h3-max/image-to-video",
+  "prompt": "Locked square camera. Preserve the exact approved identity, style, outfit, prop, background, crop, and material. Start from and return to the supplied frame. Animate one readable face/body action, one physically coherent prop interaction, one synchronized effect, and a smooth return. No camera motion, identity drift, skin-tone shift, prop deformation, UI/text mutation, or hand anatomy errors.",
+  "model_input": {
+    "prompt": "Locked square camera. Preserve the exact approved identity, style, outfit, prop, background, crop, and material. Start from and return to the supplied frame. Animate one readable face/body action, one physically coherent prop interaction, one synchronized effect, and a smooth return. No camera motion, identity drift, skin-tone shift, prop deformation, UI/text mutation, or hand anatomy errors.",
+    "duration": 5,
+    "resolution": "768P",
+    "prompt_expansion_mode": "balanced"
+  },
+  "asset_inputs": {
+    "image_url": "REPLACE_WITH_APPROVED_FRAME_ASSET_ID",
+    "end_image_url": "REPLACE_WITH_SAME_APPROVED_FRAME_ASSET_ID"
+  }
+}

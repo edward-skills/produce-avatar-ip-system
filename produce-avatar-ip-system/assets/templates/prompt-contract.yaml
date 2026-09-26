@@ -1,0 +1,89 @@
+schema_version: "1.0"
+prompt_revision: prompt-v1
+
+style:
+  preset: soft-anime-tech-3d
+  version: style-v1
+  realism: 0.35
+  head_body_ratio: "0.42-0.48"
+  eye_scale: "1.12-1.22x"
+  feature_detail: "simplified nose and mouth, expressive eyes"
+  material: "soft polymer skin, soft vinyl optics, tactile fabric"
+  geometry: "rounded, clean, continuous sculpt"
+  lighting: "bright warm frontal studio key, restrained colored rim"
+  expression: "friendly, competent, not childish"
+  motion_amplitude: medium-high
+  negative_style:
+    - photoreal pores
+    - hard cyberpunk armor
+    - baby proportions
+
+identity:
+  persona_id: p01
+  source_reference: ""
+  immutable:
+    face_contour: ""
+    hair_silhouette: ""
+    hair_color: ""
+    skin_tone: ""
+    eye_brow_shape: ""
+    visual_age: ""
+
+composition:
+  aspect_ratio: "1:1"
+  crop: upper-body
+  camera: front-facing
+  anchors_pct:
+    hair_crown_y: 5
+    eye_line_y: 29.5
+    chin_y: 41.5
+    shoulder_y: 49.5
+    lower_crop_y: 96
+
+background:
+  subject_master: transparent
+  key_color_if_needed: "#FF00FF"
+  plate_reference: ""
+  editable_layers:
+    - base-fill
+    - atmosphere
+    - decorative-accents
+  baked_into_video: false
+
+wearable:
+  design_reference: ""
+  geometry_lock: ""
+  optical_behavior: ""
+
+outfit:
+  design_reference: ""
+  construction_lock: ""
+
+prop:
+  design_reference: ""
+  front_back_topology: ""
+  grip_logic: ""
+  readable_surface: ""
+
+motion:
+  duration_seconds: 5
+  source_frame: ""
+  end_frame: "same-as-source"
+  camera: locked
+  action_sequence:
+    - rest
+    - face-body-action
+    - prop-interaction
+    - synchronized-effect
+    - return-to-rest
+  audio: silent
+
+negative_constraints:
+  - identity drift
+  - skin-tone shift
+  - camera movement
+  - crop change
+  - extra or missing fingers
+  - prop flip or deformation
+  - UI or text mutation
+  - watermark
