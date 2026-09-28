@@ -2,7 +2,7 @@
 
 ## Source privacy
 
-The private Figma source file, original generated character artwork, request IDs, signed URLs, credentials, and client/user assets used to derive this workflow are not part of this repository. The included matrices, prompts, QA rules, and historical aggregate call counts are reusable process knowledge, not redistributable source media.
+The private Figma source file, source references, request IDs, signed URLs, credentials, and client/user assets used to derive this workflow are not part of this repository. The images under `docs/images/` are selected generated showcase outputs authorized for this public preview, including one source production example and one later quality-validation example; they contain no private Figma file, client source art, or credentials. The included templates, prompts, QA rules, and historical aggregate call counts are reusable process knowledge, not redistributable source media.
 
 ## Names and services
 

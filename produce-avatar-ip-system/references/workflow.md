@@ -4,6 +4,8 @@ Use this workflow for a reusable avatar/IP family whose identities must stay rec
 
 ## 0. Intake and acceptance ledger
 
+Read [ip-template-system.md](ip-template-system.md). Translate the idea into one `ip-template-selection-pXX.json` per persona. The reusable template is the selected parameter stack; example character images are references or candidates, never the template itself.
+
 Capture the minimum decisions that prevent expensive rework:
 
 | Field | Questions to resolve |
@@ -11,6 +13,7 @@ Capture the minimum decisions that prevent expensive rework:
 | Product role | Where will the avatar appear: selector, profile image, notification, empty state, result state, onboarding, marketing, or video? |
 | Audience and tone | Friendly, expert, playful, premium, cute, neutral, localized, B2C, B2B? |
 | Style preset | Cute collectible, Q/chibi, soft-anime tech, premium toy, semi-real, realistic, or a supplied custom reference? |
+| Construction templates | Which head/body ratio, gender presentation, body construction, face shape, hair, outfit, wearable, prop, palette, and composition IDs apply? |
 | Identity count | How many persistent personas? Which distinctions must remain visible at small size? |
 | Variant axes | Color, hair, optical wearable, outfit, prop, scene, state, audio, or motion? |
 | Required matrices | Which combinations are real deliverables? Avoid the full Cartesian product unless the product needs it. |
@@ -23,9 +26,11 @@ Capture the minimum decisions that prevent expensive rework:
 
 Write corrections as an active ledger. Mark old feedback as superseded instead of carrying contradictory instructions into new prompts.
 
+Create a reference-role map before generation. When a hero image contains the exact person, visual style, signature outfit, accessories, and a nonstandard pose, record all of those roles separately. Never use the pose defect as identity truth or treat the outfit as generic “style.”
+
 ## 1. Concept direction gate
 
-Read [style-presets.md](style-presets.md). Create two or three directions that differ in silhouette, facial language, proportion, material, and emotional tone. Keep the same intended modular framing so the options are comparable. Name the selected preset or version a custom style contract instead of carrying vague adjectives such as “cuter” or “more real.”
+Read [style-presets.md](style-presets.md). Create two or three parameter stacks that differ in labeled dimensions such as silhouette, facial language, proportion, material, fashion, palette, and emotional tone. Keep the same intended modular framing so the options are comparable. Resolve each stack with `scripts/assemble_avatar_prompt.py`; do not carry vague adjectives such as “cuter” or “more real” without showing the values they change.
 
 Each concept board should show enough to evaluate the system:
 
@@ -60,19 +65,38 @@ Before more image generation, define:
 
 Record the contract in Figma beside the assets or in a versioned prompt/manifest file. Do not leave the only copy in chat.
 
-## 3. Identity masters
+## 3. Anchor-persona paired validation
 
-Build persistent identity before clothes or props.
+Choose one representative `anchor_persona` before generating the rest of the cast. Read [approval-and-reference-locks.md](approval-and-reference-locks.md).
+
+Create one labeled review board containing:
+
+1. the original `SOURCE OF TRUTH`;
+2. a `NEUTRAL BASE CANDIDATE` with simple base garment and standardized camera/body anchors;
+3. a `SIGNATURE LOOK CANDIDATE` that restores the supplied outfit, accessories, material, palette hierarchy, and attitude exactly, when such a look exists.
+
+The neutral candidate must use the `neutral-base` resolver stage. It forces `plain-base-tee`, `none` wearable, `none` prop, and `neutral-front-upper-body`, including zero head roll and complete crown. It is invalid if final fashion, props, gestures, or a three-quarter pose appear.
+
+The neutral candidate proves construction. The signature candidate proves that normalization did not replace the person or dilute the approved fashion language. Use the original high-resolution identity source directly in both generations; a front-view derivative may be composition-only.
+
+Review at detail size and the real target size. Ask separately whether the person is the same, whether the standardized body/camera is correct, and whether the signature look is faithful. Write an approval receipt before promotion.
+
+Gate: the anchor identity, neutral construction, and signature look (or explicit `not applicable`) are approved. Do not expand the cast before this gate.
+
+## 4. Identity masters and cast expansion
+
+Build the remaining persistent identities from the approved anchor style and body system before modular clothes or props.
 
 1. Generate head-and-neck masters only. Keep the same front-facing camera, eye line, crown, chin, neck base, background, and lighting.
 2. Use hair silhouette, hair color, eye/eyebrow shape, face contour, and expression to create readable differences. Keep the same stylization level across personas.
 3. Compare the full set in one contact sheet at actual product sizes as well as large review size.
 4. Normalize the approved images mechanically onto the target canvas when apparent scale differs. Prompt text alone rarely guarantees identical visual size.
-5. Freeze the approved master for each persona. Every downstream prompt must identify it as the identity reference.
+5. Define each persona's body construction separately: chest plane, shoulders relative to head, torso taper, neck, arms, garment drape, and apparent head-to-shoulder ratio.
+6. Freeze the approved master for each persona. Every downstream prompt must include that exact high-resolution identity reference directly.
 
 Gate: every persona is distinct, belongs to the same cast, has the intended skin tone and stylization, and matches the shared anchors.
 
-## 4. Upper-body bases
+## 5. Upper-body bases
 
 Create a neutral upper-body reference for every persona from its approved identity master.
 
@@ -83,7 +107,13 @@ Create a neutral upper-body reference for every persona from its approved identi
 
 Gate: the contact sheet reads as one cast with a common camera and body system.
 
-## 5. Wearables, outfits, and props
+Label these bases `construction-only / not final outfit` in user-facing review. Pair the board with the approved signature-look anchor so a plain T-shirt is not mistaken for the final fashion direction.
+
+## 6. Signature outfit, wearables, derived outfits, and props
+
+If the user supplied a signature look, reconstruct it first. Lock silhouette, layering, neckline, sleeves, hem, material, hardware, accessories, and dominant/secondary/accent color area. Do not translate a precise supplied garment into a loosely named category such as “tech bomber” and then invent a different varsity, athletic, armor, or gaming interpretation.
+
+Approve the signature reconstruction before generating derived outfit families.
 
 Choose between a true swappable layer and a native-rendered variant based on visual behavior:
 
@@ -95,7 +125,7 @@ Choose between a true swappable layer and a native-rendered variant based on vis
 
 Gate: all assets share the approved material and anchors; transparent edges are real; no asset obscures the face unintentionally.
 
-## 6. Complete front-facing characters
+## 7. Complete front-facing characters
 
 Generate only the combinations the product needs, such as `persona × outfit` or `persona × visor-color`. Supply separate references with explicit roles:
 
@@ -107,7 +137,7 @@ Keep the result front-facing and standardized if it will power selection cards o
 
 Gate: matrix count is correct, every cell uses the intended source assets, and row/column changes affect only their declared axis.
 
-## 7. Expressive scene renders
+## 8. Expressive scene renders
 
 Scene renders are complete authored character illustrations, not mechanical layer composites. When the background must remain replaceable, author the subject and background as separate deliverables even if a composed card is also required.
 
@@ -121,7 +151,7 @@ Scene renders are complete authored character illustrations, not mechanical laye
 
 Gate: identities and scale are stable, scene behavior is distinct, hands are intact, and every prop is physically legible at the target UI size.
 
-## 8. Editable backgrounds and scene cards
+## 9. Editable backgrounds and scene cards
 
 Use three explicit asset types:
 
@@ -133,7 +163,7 @@ Keep background atmosphere and decorative stars out of the transparent subject w
 
 Gate: the subject composites cleanly over light and dark checks, the plate can be replaced without regenerating the character, and the composed card matches the approved preview.
 
-## 9. Motion loops
+## 10. Motion loops
 
 Use motion only after the source scene art is approved.
 
@@ -148,7 +178,7 @@ Use motion only after the source scene art is approved.
 
 Gate: the representative sample is approved; every batch item passes visual and technical checks; failed cells are regenerated individually rather than restarting the whole batch.
 
-## 10. Figma organization and delivery
+## 11. Figma organization and delivery
 
 Prefer the exact user-supplied page and node. Do not create duplicate pages or move confirmed artwork without consent.
 

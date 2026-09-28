@@ -1,0 +1,27 @@
+schema_version: "1.0"
+stage: base_ip_review
+decision_timestamp: ""
+decision_source: user
+user_words: ""
+
+review_board:
+  large: ""
+  target_size: ""
+reviewed_assets: []
+source_of_truth_assets: []
+
+axes:
+  identity_fidelity: pending
+  style_material: pending
+  composition_camera_crop: pending
+  body_construction_scale: pending
+  neutral_base_presentation: pending
+  signature_look_outfit_accessories: pending
+
+approved_assets: []
+rejected_assets: []
+superseded_assets: []
+active_corrections: []
+promotion_performed: false
+next_allowed_action: ""
+notes: "An unqualified OK approves only the labeled assets and axes visible on the recorded review board."

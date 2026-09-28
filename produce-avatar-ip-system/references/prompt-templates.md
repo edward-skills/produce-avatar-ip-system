@@ -2,6 +2,8 @@
 
 These templates encode reference roles and invariants. Replace bracketed placeholders. Keep only relevant clauses; excessive constraints can compete with the actual edit.
 
+Before filling prose templates manually, resolve the project's parameter selection with `scripts/assemble_avatar_prompt.py`. The catalog prompt blocks define style, proportion, presentation, body construction, face, hair, outfit, wearable, prop, palette, and composition independently; this document supplies task/reference grammar around those resolved blocks.
+
 ## Prompt grammar
 
 Before writing a production prompt, read [style-presets.md](style-presets.md) and insert exactly one approved style block. Keep the style block separate from identity. “Cute,” “Q/chibi,” “semi-real,” and “realistic” change proportion, feature detail, material, lighting, and motion amplitude; they are not interchangeable adjectives.
@@ -18,6 +20,8 @@ For every production prompt, use this order:
 8. Exclusions and failure modes.
 
 Say which image is the identity source, which is the composition template, and which is the accessory/outfit reference. Avoid phrases such as “use these references” without roles.
+
+For identity-critical work, the highest-resolution approved identity source must be supplied directly. A generated front-view or upper-body candidate may guide composition, but it must never become the only face/identity reference. State both the allowed transfer and the forbidden transfer from every secondary image.
 
 Use this assembly order:
 
@@ -58,6 +62,39 @@ Avoid: copied franchise design, photoreal people, generic robot plating, crypto/
 
 Use separate prompts for genuinely different directions. Do not generate the production layer library from the concept board itself.
 
+## Anchor persona: neutral + signature pair
+
+Generate these as two separate images, then place them beside the source of truth on one labeled board.
+
+### Neutral construction master
+
+```text
+Use case: anchor-persona construction validation
+Asset type: neutral upper-body base candidate
+
+Image 1 is the ONLY exact identity and style source. Preserve its face contour; eye shape, iris scale, and spacing; brows; nose; mouth/lip volume; cheeks; jaw; skin; hair silhouette/color; visual age; stylization; material; and head/body character.
+Image 2, when present, is composition-only. Transfer only [front camera, zero head roll, eye line, headroom, shoulders, crop]. Do not transfer Image 2's face, features, skin, hair, body anatomy, outfit, material, or expression.
+
+Create the same person as Image 1 in [standardized composition]. Change only [camera/head roll] and the garment to [plain neutral base garment]. Keep one continuous head-neck-shoulder-torso render.
+No final outfit, signature accessories, wearable, prop, gesture, logo, text, halo, or scene.
+```
+
+### Signature-look validation
+
+```text
+Use case: anchor-persona identity and fashion validation
+Asset type: standardized signature-look candidate
+
+Image 1 is the ONLY exact identity, style, outfit, accessory, material, palette-hierarchy, and attitude source.
+Image 2 is composition-only. Transfer only [front camera, zero head roll, eye line, headroom, shoulders, crop]. Do not transfer its face, features, hair, skin, material, T-shirt, or generic fashion language.
+
+Create the same person from Image 1 in the standardized composition. Restore Image 1's signature look exactly: [silhouette], [layers], [neckline], [sleeves], [hem], [hardware], [accessories]. Preserve the approximate color-area hierarchy: [dominant], [secondary], [accent], [emissive].
+
+Forbidden reinterpretations: [not varsity], [not armor], [not full-accent-color body], [other project-specific exclusions]. No invented visor/prop/logo/text/halo or new fashion concept.
+```
+
+The signature candidate is not permission to produce the full modular matrix. It is evidence that identity and fashion language survived standardization.
+
 ## Identity head master
 
 ```text
@@ -88,6 +125,25 @@ No final outfit, visor, jewelry, props, logo, text, legs, pants, floor, or backg
 ```
 
 If a head/body seam or scale mismatch appears, regenerate the full continuous character using the composition template. Do not keep patching the neck.
+
+## Signature outfit reconstruction
+
+Use this before derived outfit exploration whenever the user supplied a recognizable original look.
+
+```text
+Use case: signature-outfit reconstruction
+Asset type: approved fashion-language anchor
+
+Image 1 is the exact identity and signature-look source. Image 2, when present, is composition-only. Preserve Image 1's exact person and directly reconstruct its garment and accessories rather than designing a new outfit.
+
+Silhouette/length: [exact description].
+Layering and construction: [inner garment, jacket/outerwear, openings, collar, sleeves, hem].
+Material/hardware: [fabric, padding, seams, zips, buckles, translucent pieces].
+Accessories: [exact detachable set].
+Palette-area hierarchy: [dominant %/role], [secondary %/role], [accent %/role], [emissive %/role].
+
+Do not reinterpret it as [forbidden category], change dominant and accent colors, add a wearable, or simplify away identity-bearing accessories. No prop unless it is explicitly part of the approved signature look.
+```
 
 ## Native optical wearable
 
@@ -128,9 +184,9 @@ No person, head, neck, skin, hands, mannequin, hanger, legs, text, logo, badge, 
 Use case: identity-preserving composition
 Asset type: complete reusable upper-body avatar
 
-Image 1 is the exact identity and body-proportion reference. Image 2 is the exact native-rendered wearable reference. Image 3 is the exact outfit reference.
+Image 1 is the highest-resolution exact identity source. Image 2 is the approved body/composition reference only. Image 3 is the exact native-rendered wearable reference when used. Image 4 is the exact outfit reference.
 
-Create [persona] wearing the exact outfit from Image 3 and the exact [wearable/color] from Image 2. Preserve Image 1's face, head size, eye shape, hair, hair color, skin tone, stylization, and body scale. Preserve the approved 3D material and soft studio lighting.
+Create [persona] wearing the exact outfit from Image 4 and the exact [wearable/color] from Image 3. Preserve Image 1's face, eye construction, hair, hair color, skin tone, and stylization. Transfer only body scale/crop from Image 2. Preserve the approved 3D material and soft studio lighting.
 
 Composition: [front-facing], head and upper body only, [percentage anchors].
 Wearable lock: preserve geometry, transparency, refraction, rim light, and bloom; eyes remain visible; no skin tint.

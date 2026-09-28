@@ -1,0 +1,72 @@
+schema_version: "1.0"
+persona_id: p01
+working_name: ""
+status: candidate
+anchor_persona: true
+
+template_selection:
+  source: brief/ip-template-selection-p01.json
+  style: cute-collectible-3d
+  proportion: cute-large-head-upper-body
+  gender_presentation: androgynous-neutral
+  body_construction: compact-neutral
+  face_shape: rounded-square
+  hair: sculpted-bob-undercut
+  note: "These IDs define construction; they do not identify a fixed person."
+
+source_of_truth:
+  identity_reference: ""
+  style_reference: ""
+  composition_reference: ""
+  signature_look_reference: ""
+
+immutable_identity:
+  visual_age: ""
+  gender_presentation: ""
+  face_contour: ""
+  eye_shape_scale_spacing: ""
+  eyebrow_shape: ""
+  nose_construction: ""
+  mouth_lip_volume: ""
+  cheek_jaw: ""
+  skin_tone_material: ""
+  hair_silhouette_color: ""
+  personality_cues: ""
+
+body_construction:
+  template_id: compact-neutral
+  chest_plane: ""
+  shoulder_width_relative_to_head: ""
+  torso_taper: ""
+  neck_length_width: ""
+  arm_thickness: ""
+  base_garment_drape: ""
+  apparent_head_to_shoulders: ""
+
+composition:
+  template_id: neutral-front-upper-body
+  camera: exact-front
+  head_roll_degrees: 0
+  eye_line: level
+  crown_headroom_pct: ""
+  eye_line_y_pct: ""
+  chin_y_pct: ""
+  shoulder_y_pct: ""
+  lower_crop_y_pct: ""
+
+signature_look:
+  outfit_id: signature-01
+  silhouette: ""
+  layers: []
+  accessories: []
+  dominant_color_area: ""
+  secondary_color_area: ""
+  accent_color_area: ""
+  material_hardware: ""
+  prohibited_reinterpretations: []
+
+approval:
+  identity: pending
+  neutral_construction: pending
+  signature_look: pending
+  approved_sources: []

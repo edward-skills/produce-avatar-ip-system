@@ -44,16 +44,27 @@ def parse_color(value: str) -> tuple[int, int, int]:
 
 def collect(paths: list[Path]) -> list[Path]:
     files: list[Path] = []
+    seen: set[Path] = set()
     for path in paths:
         if path.is_dir():
-            files.extend(
+            candidates = sorted(
+                (
                 candidate
                 for candidate in path.rglob("*")
                 if candidate.suffix.lower() in IMAGE_EXTENSIONS | VIDEO_EXTENSIONS
+                ),
+                key=lambda item: str(item).lower(),
             )
         elif path.suffix.lower() in IMAGE_EXTENSIONS | VIDEO_EXTENSIONS:
-            files.append(path)
-    return sorted(set(files), key=lambda item: str(item).lower())
+            candidates = [path]
+        else:
+            candidates = []
+        for candidate in candidates:
+            resolved = candidate.resolve()
+            if resolved not in seen:
+                files.append(candidate)
+                seen.add(resolved)
+    return files
 
 
 def video_duration(path: Path) -> float:
@@ -137,6 +148,13 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--columns", type=int, default=4)
     parser.add_argument("--cell", type=parse_size, default=(320, 320))
     parser.add_argument("--label-height", type=int, default=34)
+    parser.add_argument(
+        "--labels",
+        nargs="+",
+        help="ordered labels for explicit inputs; count must match collected items",
+    )
+    parser.add_argument("--title", default="", help="optional review-board title")
+    parser.add_argument("--title-height", type=int, default=54)
     parser.add_argument("--background", type=parse_color, default=(241, 244, 248))
     parser.add_argument("--checker-size", type=int, default=16)
     parser.add_argument(
@@ -150,7 +168,12 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main() -> int:
     args = build_parser().parse_args()
-    if args.columns <= 0 or args.label_height < 0 or args.checker_size <= 0:
+    if (
+        args.columns <= 0
+        or args.label_height < 0
+        or args.title_height < 0
+        or args.checker_size <= 0
+    ):
         raise SystemExit("columns/checker size must be positive and label height non-negative")
     if not 0.0 <= args.video_position <= 1.0:
         raise SystemExit("--video-position must be between 0 and 1")
@@ -158,16 +181,30 @@ def main() -> int:
     files = collect(args.inputs)
     if not files:
         raise SystemExit("no supported image or video files found")
+    if args.labels is not None and len(args.labels) != len(files):
+        raise SystemExit(
+            f"--labels count ({len(args.labels)}) must match collected items ({len(files)})"
+        )
 
     rows = math.ceil(len(files) / args.columns)
     cell_width, cell_height = args.cell
+    title_height = args.title_height if args.title else 0
     sheet = Image.new(
         "RGBA",
-        (args.columns * cell_width, rows * (cell_height + args.label_height)),
+        (
+            args.columns * cell_width,
+            title_height + rows * (cell_height + args.label_height),
+        ),
         (*args.background, 255),
     )
     draw = ImageDraw.Draw(sheet)
     font = ImageFont.load_default()
+    if args.title:
+        draw.rectangle(
+            (0, 0, sheet.width, title_height),
+            fill=(24, 32, 45, 255),
+        )
+        draw.text((14, 18), args.title, fill=(255, 255, 255), font=font)
 
     for index, path in enumerate(files):
         try:
@@ -182,11 +219,11 @@ def main() -> int:
         column = index % args.columns
         row = index // args.columns
         x = column * cell_width
-        y = row * (cell_height + args.label_height)
+        y = title_height + row * (cell_height + args.label_height)
         backdrop = checkerboard(args.cell, args.background, args.checker_size)
         backdrop.alpha_composite(fit_image(image, args.cell))
         sheet.alpha_composite(backdrop, (x, y))
-        label = path.name
+        label = args.labels[index] if args.labels is not None else path.name
         if len(label) > 44:
             label = f"{label[:20]}…{label[-21:]}"
         draw.text((x + 7, y + cell_height + 9), label, fill=(24, 32, 45), font=font)

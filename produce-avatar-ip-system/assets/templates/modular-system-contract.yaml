@@ -1,0 +1,37 @@
+schema_version: "1.0"
+revision: modular-v1
+state: blocked-until-anchor-pair-approved
+
+approved_sources:
+  identity: ""
+  neutral_upper_body: ""
+  signature_look: ""
+
+signature_outfit:
+  id: signature-01
+  source_reference: ""
+  silhouette: ""
+  layers: []
+  accessories: []
+  material_hardware: ""
+  palette_area_roles:
+    dominant: ""
+    secondary: ""
+    accent: ""
+    emissive: ""
+  prohibited_reinterpretations: []
+
+derived_outfits: []
+wearables: []
+props: []
+palette_families: []
+
+representative_review_matrix: []
+full_matrix_after_approval: []
+
+locks:
+  - include-highest-resolution-approved-identity-source-directly
+  - reconstruct-signature-outfit-before-inventing-derived-outfits
+  - change-one-axis-at-a-time
+  - do-not-change-body-anatomy-or-gender-presentation-with-outfit
+  - no-unrequested-logo-text-halo-or-weapon

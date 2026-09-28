@@ -6,6 +6,8 @@ Define this contract before multiplying variants. Values below are a proven squa
 
 Assign stable persona IDs such as `m1`, `f1`, `m2`, and `f2`, or neutral IDs such as `p01` through `p04`. A persona ID represents a persistent face, head shape, hair silhouette/color, stylization level, and baseline skin tone. Clothing, optical color, scene, and motion must not redefine identity.
 
+Define one anchor persona first. Its neutral construction master and signature-look validation must both be approved before using it to establish the rest of the cast.
+
 Use explicit matrices:
 
 | Matrix | Typical purpose |
@@ -60,6 +62,10 @@ Also record:
 - fabric and hardware language;
 - allowed saturated accents;
 - prohibited motifs and marks.
+
+For each persona, separately record body construction: chest plane, shoulders relative to head, torso taper, neck length/width, arm thickness, base-garment drape, and apparent head-to-shoulder ratio. Clothing generation must not silently change these anatomy tokens.
+
+For every supplied signature look, record outfit silhouette, layering, neckline, sleeve/hem anchors, hardware, detachable accessories, and approximate dominant/secondary/accent/emissive color area. Reconstruct this look before derived outfit design.
 
 When the user changes art direction, version the material lock. Do not blend two approved but incompatible styles inside one asset family.
 

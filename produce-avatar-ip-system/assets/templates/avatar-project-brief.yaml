@@ -30,14 +30,42 @@ style:
   version: style-v1
   supplied_reference: ""
   custom_overrides: {}
+  user_facing_controls:
+    realism: "stylized"
+    cute_proportion: "medium"
+    fashion_attitude: ""
+    trend_axis: []
+    color_energy: ""
+    material_finish: ""
+
+template_system:
+  catalog: brief/ip-template-catalog.snapshot.json
+  rule: "Each persona selects independent parameter IDs; no fixed example character is the reusable template."
+  neutral_base_forces:
+    outfit: plain-base-tee
+    wearable: none
+    prop: none
+    composition: neutral-front-upper-body
+
+reference_contract:
+  role_map: brief/reference-role-map.yaml
+  anchor_persona: p01
+  require_direct_identity_source_for_identity_critical_work: true
+  pair_neutral_and_signature_validation: true
 
 personas:
   - id: p01
     immutable_identity: ""
     approved_source: ""
+    contract: brief/persona-p01.yaml
+    template_selection: brief/ip-template-selection-p01.json
+    anchor: true
   - id: p02
     immutable_identity: ""
     approved_source: ""
+    contract: brief/persona-p02.yaml
+    template_selection: brief/ip-template-selection-p02.json
+    anchor: false
 
 framing:
   crop: upper-body
@@ -61,6 +89,14 @@ matrix:
   backgrounds: [transparent]
   motion_modes: [static]
   combinations_required: []
+
+signature_look:
+  supplied: false
+  source_reference: ""
+  exact_reconstruction_required_before_derived_outfits: true
+  outfit_id: signature-01
+  palette_area_roles: {}
+  prohibited_reinterpretations: []
 
 background_contract:
   transparent_subject_master: true
@@ -96,7 +132,8 @@ generation:
 
 approval_gates:
   - concept-direction
-  - identity-masters
+  - anchor-neutral-and-signature-pair
+  - cast-identity-and-body-system
   - representative-static
   - representative-motion
   - full-matrix

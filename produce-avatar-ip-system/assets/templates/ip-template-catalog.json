@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.0",
+  "description": "Composable avatar-IP parameters. Options define visible design rules, never a fixed person's likeness.",
+  "dimension_order": [
+    "style",
+    "proportion",
+    "gender_presentation",
+    "body_construction",
+    "face_shape",
+    "hair",
+    "outfit",
+    "wearable",
+    "prop",
+    "palette",
+    "composition"
+  ],
+  "dimensions": {
+    "style": {
+      "label": "Rendering style",
+      "options": {
+        "soft-anime-tech-3d": {
+          "label": "Soft anime tech 3D",
+          "controls": {"realism": 0.35, "material": "soft polymer, vinyl optics, tactile fabric"},
+          "prompt_block": "Premium stylized 3D anime character with simplified nose and mouth, expressive but controlled eyes, clean rounded geometry, soft-polymer skin, tactile fabric, bright warm studio key, and a restrained colored rim; friendly and competent, not childish.",
+          "avoid": ["photoreal pores", "hard cyberpunk armor", "dark dystopian grade"]
+        },
+        "cute-collectible-3d": {
+          "label": "Cute collectible 3D",
+          "controls": {"realism": 0.22, "material": "plush-vinyl and soft fabric"},
+          "prompt_block": "Cute premium 3D collectible character with a rounded iconic silhouette, simplified facial planes, plush-vinyl material separation, tactile fabric, clean seams, gentle studio light, and a polished designer-toy finish without infant cues.",
+          "avoid": ["toddler anatomy", "cheap glossy plastic", "franchise imitation"]
+        },
+        "q-chibi-3d": {
+          "label": "Q chibi 3D",
+          "controls": {"realism": 0.12, "material": "soft toy-like polymer"},
+          "prompt_block": "Q-version chibi 3D character with an oversized complete head, compact readable body, large expressive eyes, tiny simplified nose and mouth, rounded hands, bold clean silhouette, and soft toy-like material.",
+          "avoid": ["large realistic torso", "infant anatomy", "micro-detail"]
+        },
+        "premium-toy-3d": {
+          "label": "Premium designer toy 3D",
+          "controls": {"realism": 0.3, "material": "satin vinyl, anodized hardware, tactile fabric"},
+          "prompt_block": "Premium designer-toy 3D character with an iconic sculptural silhouette, simplified facial planes, satin vinyl, anodized hardware, tactile fabric, controlled translucent accents, and editorial product lighting.",
+          "avoid": ["cheap plastic shine", "busy seams", "generic robot plating"]
+        },
+        "semi-real-digital-human-3d": {
+          "label": "Semi-real digital human 3D",
+          "controls": {"realism": 0.62, "material": "refined PBR skin, hair, and fabric"},
+          "prompt_block": "Semi-realistic 3D digital human with plausible anatomy, natural eye scale, softened facial proportions, refined PBR skin, hair, and fabric, subtle professional expression, and soft cinematic studio lighting without pore-level uncanny detail.",
+          "avoid": ["celebrity likeness", "waxy skin", "anime mouth", "doll eyes"]
+        },
+        "realistic-digital-human": {
+          "label": "Realistic digital human",
+          "controls": {"realism": 0.86, "material": "realistic skin, hair, eyes, and fabric"},
+          "prompt_block": "Realistic but original digital human with anatomically coherent face and upper body, natural eye scale, believable skin, hair, eyes, and fabric, controlled studio lighting, and no resemblance to a real public figure.",
+          "avoid": ["celebrity likeness", "beauty-filter plastic skin", "stylized toy anatomy"]
+        }
+      }
+    },
+    "proportion": {
+      "label": "Head and body proportion",
+      "options": {
+        "balanced-stylized-upper-body": {
+          "label": "Balanced stylized upper body",
+          "controls": {"head_visible_share": "0.42-0.48", "eye_scale": "1.12-1.22x", "shoulder_head_width": "1.55-1.75"},
+          "prompt_block": "Use a consistent stylized upper-body construction: the complete head occupies 42–48% of visible character height, shoulders are 1.55–1.75 head-widths, the neck is short-to-medium, and the torso is compact but anatomically continuous.",
+          "avoid": ["undersized head", "narrow childlike shoulders", "cropped hair crown"]
+        },
+        "cute-large-head-upper-body": {
+          "label": "Cute large-head upper body",
+          "controls": {"head_visible_share": "0.50-0.56", "eye_scale": "1.22-1.35x", "shoulder_head_width": "1.45-1.65"},
+          "prompt_block": "Use a cute but coherent upper-body construction: the complete head occupies 50–56% of visible character height, eyes are 1.22–1.35 times natural scale, shoulders remain 1.45–1.65 head-widths, and the torso is compact without becoming infant-like.",
+          "avoid": ["realistic small head", "baby body", "thin disconnected neck"]
+        },
+        "q-chibi-upper-body": {
+          "label": "Q chibi upper body",
+          "controls": {"head_visible_share": "0.58-0.66", "eye_scale": "1.35-1.55x", "shoulder_head_width": "1.2-1.45"},
+          "prompt_block": "Use a coherent Q-chibi construction: the complete head occupies 58–66% of visible character height, with a very compact torso, short neck, rounded limbs, and deliberately simplified hands; keep the full crown visible.",
+          "avoid": ["realistic torso graft", "tiny head", "infant cues"]
+        },
+        "semi-real-upper-body": {
+          "label": "Semi-real upper body",
+          "controls": {"head_visible_share": "0.34-0.40", "eye_scale": "1.00-1.06x", "shoulder_head_width": "1.75-2.05"},
+          "prompt_block": "Use a semi-real upper-body construction with a complete head at 34–40% of visible height, natural eye scale, shoulders 1.75–2.05 head-widths, and plausible continuous neck, torso, and arms.",
+          "avoid": ["toy torso", "oversized anime eyes", "chibi limbs"]
+        },
+        "realistic-upper-body": {
+          "label": "Realistic upper body",
+          "controls": {"head_visible_share": "0.30-0.36", "eye_scale": "0.98-1.02x", "shoulder_head_width": "1.9-2.25"},
+          "prompt_block": "Use realistic adult upper-body proportions with a complete head at 30–36% of visible height, natural eye scale, shoulders 1.9–2.25 head-widths, and anatomically plausible neck, torso, and arms.",
+          "avoid": ["collectible head scale", "anime eye scale", "compressed toy torso"]
+        }
+      }
+    },
+    "gender_presentation": {
+      "label": "Optional gender presentation",
+      "options": {
+        "feminine-soft": {
+          "label": "Feminine, soft",
+          "prompt_block": "Use a softly feminine presentation through refined brow shape, restrained lashes, gentle facial styling, and poised expression only; do not infer hair length, chest shape, outfit, color, occupation, or personality.",
+          "avoid": ["exaggerated makeup", "automatic long hair", "automatic curved chest"]
+        },
+        "feminine-tailored": {
+          "label": "Feminine, tailored",
+          "prompt_block": "Use a confident tailored feminine presentation through clean brows, controlled lashes, crisp facial styling, and composed attitude only; anatomy, hair, clothing, and color follow their separate selected templates.",
+          "avoid": ["sexualized anatomy", "automatic skirt", "fragile posture"]
+        },
+        "masculine-soft": {
+          "label": "Masculine, soft",
+          "prompt_block": "Use a softly masculine presentation through slightly denser brows, restrained lashes, calm facial styling, and grounded expression only; anatomy, hair, clothing, and color follow their separate selected templates.",
+          "avoid": ["automatic beard", "aggressive expression", "automatic broad body"]
+        },
+        "masculine-structured": {
+          "label": "Masculine, structured",
+          "prompt_block": "Use a structured masculine presentation through clear brow construction, restrained lashes, subtly firmer facial planes, and confident neutral attitude only; do not infer chest, hair, clothing, or occupation.",
+          "avoid": ["hypermasculine caricature", "automatic beard", "identity change"]
+        },
+        "androgynous-neutral": {
+          "label": "Androgynous neutral",
+          "prompt_block": "Use an androgynous presentation with balanced brow and lash treatment, neutral facial styling, and no gender-coded assumptions about anatomy, hair, outfit, color, or role.",
+          "avoid": ["binary-coded anatomy inference", "gendered color stereotypes"]
+        },
+        "custom": {
+          "label": "Custom presentation",
+          "prompt_block": "Follow only the project-specific gender-presentation description; do not infer unrequested anatomy, hair, clothing, color, or personality.",
+          "avoid": ["stereotype completion", "unrequested gender coding"]
+        }
+      }
+    },
+    "body_construction": {
+      "label": "Upper-body construction",
+      "options": {
+        "compact-neutral": {
+          "label": "Compact neutral",
+          "prompt_block": "Build a compact neutral torso with a quiet chest plane, balanced shoulders, short-to-medium neck, gentle torso taper, and clean crew-neck garment drape; do not emphasize sex-linked anatomy.",
+          "avoid": ["pronounced chest contour", "extreme shoulder taper", "pasted head"]
+        },
+        "flat-straight": {
+          "label": "Flat chest, straight torso",
+          "prompt_block": "Build a flat chest plane, straight torso sides, clean clavicle-to-shoulder transition, and a T-shirt that falls straight without bust contour or pinched waist.",
+          "avoid": ["breast contour", "hourglass taper", "feminine bust drape"]
+        },
+        "soft-curved": {
+          "label": "Soft curved torso",
+          "prompt_block": "Build a softly curved chest and torso with natural non-sexualized volume, balanced shoulders, a gentle waist transition, and fabric that follows the selected shape without exaggeration.",
+          "avoid": ["sexualized bust", "extreme hourglass", "skin-tight distortion"]
+        },
+        "broad-athletic": {
+          "label": "Broad athletic torso",
+          "prompt_block": "Build broad level shoulders, a stable upper chest plane, slightly tapered athletic torso, proportionate neck, and relaxed garment drape without bodybuilding exaggeration.",
+          "avoid": ["bodybuilder mass", "tiny head", "armor-like anatomy"]
+        }
+      }
+    },
+    "face_shape": {
+      "label": "Face construction",
+      "options": {
+        "soft-round": {"label": "Soft round", "prompt_block": "Use a soft round face contour with full cheeks, a short gentle jaw, and a rounded chin while preserving identity-specific eyes, nose, mouth, and skin.", "avoid": ["baby face", "balloon cheeks"]},
+        "tapered-oval": {"label": "Tapered oval", "prompt_block": "Use a tapered oval face with moderate cheek volume, a smooth narrowing jaw, and a softly defined chin while preserving identity-specific features.", "avoid": ["needle chin", "long gaunt face"]},
+        "rounded-square": {"label": "Rounded square", "prompt_block": "Use a rounded-square face with a stable cheek-to-jaw width, softened corners, and a compact chin; keep it cute and graphic rather than angular or photoreal.", "avoid": ["harsh square jaw", "overly narrow lower face"]},
+        "angular-soft": {"label": "Soft angular", "prompt_block": "Use softly angular cheek and jaw planes with controlled definition and rounded transitions; preserve the selected stylization and avoid photoreal bone detail.", "avoid": ["razor jaw", "hollow cheeks"]}
+      }
+    },
+    "hair": {
+      "label": "Hair silhouette",
+      "options": {
+        "sculpted-bob-undercut": {"label": "Sculpted bob with undercut", "prompt_block": "Hair is a sculpted asymmetric bob with a visible undercut, large clean strand groups, strong crown silhouette, face-framing fringe, and a fully visible top contour.", "avoid": ["wispy realistic flyaways", "cropped crown", "symmetrical helmet hair"]},
+        "swept-taper": {"label": "Swept taper", "prompt_block": "Hair has a swept textured top, clean tapered sides, controlled front fringe, and a complete crown silhouette built from a few readable sculpted groups.", "avoid": ["flat cap shape", "cropped crown", "generic side part"]},
+        "cropped-coils": {"label": "Cropped coils", "prompt_block": "Hair forms compact cropped coils with a clear rounded crown, grouped curl clusters, controlled hairline, and simplified material suited to the selected 3D style.", "avoid": ["noisy strand detail", "flat crown", "straight-hair substitution"]},
+        "rounded-crop": {"label": "Rounded crop", "prompt_block": "Hair is a compact rounded crop with an iconic outer silhouette, subtle front variation, clean side contour, and fully visible crown.", "avoid": ["featureless helmet", "cropped crown", "excess strand noise"]},
+        "layered-shag": {"label": "Layered shag", "prompt_block": "Hair uses layered sculpted locks, a broken outer silhouette, controlled volume at crown and sides, and face-framing pieces that never hide the eyes.", "avoid": ["mess obscuring eyes", "realistic strand noise", "cropped top"]},
+        "long-ponytail": {"label": "Long ponytail", "prompt_block": "Hair has a clean front silhouette and tied long ponytail with a readable root, tie, volume, and direction; keep the face and full crown unobstructed.", "avoid": ["floating ponytail", "missing tie", "hair hiding eyes"]}
+      }
+    },
+    "outfit": {
+      "label": "Outfit category",
+      "options": {
+        "plain-base-tee": {"label": "Neutral base T-shirt", "prompt_block": "Wear only a plain matte crew-neck T-shirt with short sleeves, no logo, trim, hardware, pattern, layers, jewelry, or fashion statement; it exists only to reveal shoulder, chest, neck, and torso construction.", "avoid": ["outerwear", "accessories", "deep neckline", "logo"]},
+        "signature-source-reconstruction": {"label": "Reconstruct supplied signature look", "prompt_block": "Reconstruct the supplied signature outfit and accessories exactly from the declared signature-look source, preserving silhouette, layers, neckline, sleeves, hem, hardware, material, and palette-area hierarchy; invent nothing.", "avoid": ["generic reinterpretation", "new accessory", "category substitution"]},
+        "neo-street-tech": {"label": "Neo street-tech", "prompt_block": "Use a neo street-tech outfit with a cropped or compact outer layer, clean oversized volumes, technical strap or buckle logic, restrained utility hardware, tactile fabric, and one controlled electric accent; fashionable, not armored.", "avoid": ["combat armor", "busy tactical pouches", "full-body neon"]},
+        "minimal-skate": {"label": "Minimal skate", "prompt_block": "Use a minimal skate-inspired outfit with relaxed boxy layers, clean jersey or canvas materials, one graphic-free color block, practical seams, and casual confidence.", "avoid": ["brand logos", "grunge dirt", "oversized prop"]},
+        "y2k-playful": {"label": "Y2K playful", "prompt_block": "Use a playful Y2K-inspired outfit with compact layered shapes, glossy accent hardware, curved panel lines, and limited candy-color details while keeping the overall silhouette readable and premium.", "avoid": ["logo copying", "costume overload", "full metallic outfit"]},
+        "smart-workwear": {"label": "Smart workwear", "prompt_block": "Use smart contemporary workwear with a short structured jacket or overshirt, simple inner layer, clean collar and cuff construction, restrained hardware, and approachable professional polish.", "avoid": ["formal suit stiffness", "corporate logo", "generic lab coat"]},
+        "utility-tech": {"label": "Utility tech", "prompt_block": "Use compact utility-tech clothing with functional paneling, one or two readable pockets, precise closures, soft technical fabric, and restrained hardware; keep the face and body silhouette dominant.", "avoid": ["military camouflage", "weapon cues", "pouch overload"]},
+        "premium-casual": {"label": "Premium casual", "prompt_block": "Use premium casual layers with a refined knit or jersey inner, softly structured outer layer, minimal seams, excellent fabric separation, and a calm editorial silhouette.", "avoid": ["generic business suit", "fast-fashion graphics", "excess hardware"]},
+        "service-uniform": {"label": "Service uniform", "prompt_block": "Use a friendly service uniform with a clear collar or neckline, simple role-readable panels, restrained piping, practical short outer layer, and no real-company marks.", "avoid": ["real brand logo", "military rank", "costume caricature"]}
+      }
+    },
+    "wearable": {
+      "label": "Detachable wearable",
+      "options": {
+        "none": {"label": "None", "prompt_block": "No eyewear, visor, earpiece, jewelry, hair accessory, headset, or other wearable.", "avoid": ["invented accessory"]},
+        "clear-ar-visor": {"label": "Clear AR visor", "prompt_block": "Add a slim transparent AR visor with exact bridge and temple contact, clear eyes and brows, controlled refraction, a narrow colored rim, and restrained outer bloom that does not tint skin or hair.", "avoid": ["opaque eye panel", "fogged lens", "face-covering helmet"]},
+        "slim-glasses": {"label": "Slim glasses", "prompt_block": "Add slim lightweight glasses with a clean bridge, visible temples, correct face contact, low-reflection lenses, and unobstructed eyes.", "avoid": ["floating frames", "opaque lenses", "oversized novelty glasses"]},
+        "mono-earpiece": {"label": "Mono earpiece", "prompt_block": "Add one compact sculpted earpiece with believable ear contact, a clear housing and restrained light accent; keep it separate from the hair silhouette and do not add a headset band.", "avoid": ["floating earpiece", "full headset", "ear deformation"]},
+        "ear-jewelry": {"label": "Ear jewelry", "prompt_block": "Add a restrained modular ear-jewelry set with clear attachment points, coherent metal/translucent material, and no interference with hair or face silhouette.", "avoid": ["floating jewelry", "asymmetric accident", "oversized ornament"]},
+        "hair-clips": {"label": "Hair clips", "prompt_block": "Add a small intentional set of geometric hair clips attached to visible hair masses, using the palette accent and consistent material; preserve the hair silhouette.", "avoid": ["floating clips", "random count", "logo-shaped ornament"]}
+      }
+    },
+    "prop": {
+      "label": "Role prop",
+      "options": {
+        "none": {"label": "None", "prompt_block": "No held object, tool, device, package, icon, or floating prop.", "avoid": ["invented prop"]},
+        "analytics-tablet": {"label": "Analytics tablet", "prompt_block": "Use one rigid tablet with a front glass plane facing the viewer; hands grip only side and lower bezels, the data surface stays readable, and the device never turns edge-on or hides the face.", "avoid": ["screen on back", "rubber tablet", "fingers through glass"]},
+        "communication-phone": {"label": "Communication phone", "prompt_block": "Use one phone whose front glass faces the viewer; the holding palm stays behind the back shell, the thumb rests on the near bezel, and the free index may touch only the front glass.", "avoid": ["phone flip", "screen on back", "hand over UI"]},
+        "workbench-laptop": {"label": "Workbench laptop", "prompt_block": "Use one laptop with a vertical viewer-facing screen, one horizontal keyboard deck, and a visible hinge; one palm supports the deck and no screen appears on the outer lid or keyboard.", "avoid": ["two screens", "missing hinge", "floating keyboard"]},
+        "fulfillment-package-scanner": {"label": "Package and scanner", "prompt_block": "Use one rigid package with a label fixed to one visible face and one compact scanner aimed at that label; hands support the box and scanner with believable contact.", "avoid": ["warped box", "moving label", "scanner fused to hand"]},
+        "campaign-megaphone": {"label": "Campaign megaphone", "prompt_block": "Use one compact megaphone with intact cone, rim, handle, and rear housing; the grip hand stays on the handle and the opening points away without covering the face.", "avoid": ["deformed cone", "missing handle", "weapon-like design"]}
+      }
+    },
+    "palette": {
+      "label": "Color-role palette",
+      "options": {
+        "cobalt-ultraviolet": {"label": "Cobalt + ultraviolet", "controls": {"dominant": "graphite", "secondary": "cobalt", "accent": "ultraviolet", "emissive": "electric blue"}, "prompt_block": "Apply color by material area: graphite dominant, cobalt secondary, ultraviolet accent, and a small electric-blue emissive detail; never tint skin, hair, eyes, or the entire image.", "avoid": ["full blue cast", "neon overload"]},
+        "graphite-acid-lime": {"label": "Graphite + acid lime", "controls": {"dominant": "graphite", "secondary": "cool gray", "accent": "acid lime", "emissive": "lime"}, "prompt_block": "Use graphite dominant, cool-gray secondary, and acid-lime only as a small high-energy accent/emissive; preserve neutral skin and material color separation.", "avoid": ["lime skin cast", "full neon garment"]},
+        "coral-cyan": {"label": "Coral + cyan", "controls": {"dominant": "deep ink", "secondary": "soft coral", "accent": "cyan", "emissive": "icy cyan"}, "prompt_block": "Use deep ink dominant, soft coral secondary, cyan accent, and minimal icy-cyan emission with clean warm/cool separation and no global grade.", "avoid": ["muddy purple mix", "skin recolor"]},
+        "warm-neutral-cobalt": {"label": "Warm neutral + cobalt", "controls": {"dominant": "warm gray", "secondary": "cream", "accent": "cobalt", "emissive": "none"}, "prompt_block": "Use warm gray dominant, cream secondary, and crisp cobalt accent in small areas; keep the result modern, calm, and material-led without global color cast.", "avoid": ["beige wash", "blue skin rim"]},
+        "silver-mono": {"label": "Silver monochrome", "controls": {"dominant": "charcoal", "secondary": "silver", "accent": "white", "emissive": "none"}, "prompt_block": "Use charcoal dominant, controlled silver secondary, and small white highlights, separating materials by roughness rather than hue while preserving natural skin and hair color.", "avoid": ["chrome body", "black-and-white skin", "mirror glare"]}
+      }
+    },
+    "composition": {
+      "label": "Camera and crop",
+      "options": {
+        "neutral-front-upper-body": {"label": "Neutral front upper body", "controls": {"camera": "exact front", "head_roll_degrees": 0, "crown_headroom_pct": "4-7", "lower_crop_y_pct": "94-98"}, "prompt_block": "Exact front-facing upper-body camera, zero head roll, level eye line and shoulders, full hair crown with 4–7% headroom, both shoulders and upper arms visible, centered torso, and lower crop at 94–98% of frame.", "avoid": ["head tilt", "three-quarter face", "cropped crown", "uneven shoulders"]},
+        "hero-three-quarter": {"label": "Hero three-quarter", "controls": {"camera": "10-20 degree three-quarter", "head_roll_degrees": "0-3"}, "prompt_block": "Use a restrained 10–20 degree three-quarter hero camera with complete crown, readable face, subtle torso rotation, balanced headroom, and no dramatic lens distortion.", "avoid": ["profile view", "dutch angle", "extreme foreshortening"]},
+        "notification-crop": {"label": "Notification crop", "controls": {"camera": "front", "crop": "head and shoulders"}, "prompt_block": "Use a compact front head-and-shoulders crop optimized for small notification size, with full crown, clear eyes and mouth, simple silhouette, and no identity-bearing feature near the edge.", "avoid": ["cut hair", "hidden chin", "tiny face"]},
+        "full-body-turnaround": {"label": "Full-body turnaround", "controls": {"camera": "orthographic-like", "views": "front, side, back"}, "prompt_block": "Use separate aligned front, side, and back full-body construction views with neutral stance, level camera, consistent scale, complete feet and crown, and no perspective drama.", "avoid": ["mixed poses", "inconsistent scale", "cropped feet"]},
+        "dynamic-scene-upper-body": {"label": "Dynamic scene upper body", "controls": {"camera": "locked", "torso_rotation_degrees": "10-25"}, "prompt_block": "Use a locked upper-body scene camera with 10–25 degree torso rotation, readable face, complete crown, expressive but controlled gesture, and prop kept below identity-critical facial features.", "avoid": ["camera tilt", "face occlusion", "crop drift"]}
+      }
+    }
+  },
+  "stage_overrides": {
+    "concept": {
+      "include": ["style", "proportion", "gender_presentation", "body_construction", "face_shape", "hair", "outfit", "wearable", "palette", "composition"],
+      "prompt_block": "Create one clearly labeled character direction, not a production matrix. Show enough fashion and material language to judge the direction, with no role prop unless requested explicitly."
+    },
+    "neutral-base": {
+      "include": ["style", "proportion", "gender_presentation", "body_construction", "face_shape", "hair", "palette", "composition"],
+      "forced": {"outfit": "plain-base-tee", "wearable": "none", "prop": "none", "composition": "neutral-front-upper-body"},
+      "prompt_block": "This is a neutral construction master. Wear only the forced plain base T-shirt. Use a neutral expression and relaxed arms. No final outfit, signature accessory, wearable, prop, action, scene, logo, text, or background decoration."
+    },
+    "signature-look": {
+      "include": ["style", "proportion", "gender_presentation", "body_construction", "face_shape", "hair", "outfit", "wearable", "palette", "composition"],
+      "prompt_block": "This is a signature-look validation, not permission to expand the matrix. Preserve the approved identity and proportion exactly. If a signature source is declared, reconstruct it rather than inventing a new fashion concept."
+    },
+    "complete-character": {
+      "include": ["style", "proportion", "gender_presentation", "body_construction", "face_shape", "hair", "outfit", "wearable", "prop", "palette", "composition"],
+      "prompt_block": "Create one complete reusable character from approved modules only. Preserve the approved identity, head scale, body construction, camera, and material; change no unselected axis."
+    },
+    "scene": {
+      "include": ["style", "proportion", "gender_presentation", "body_construction", "face_shape", "hair", "outfit", "wearable", "prop", "palette", "composition"],
+      "prompt_block": "Create a scene subject from the approved complete character. Preserve identity and modules exactly; apply only the project-specific action and background contract, with believable hand/prop physics."
+    }
+  },
+  "global_avoid": [
+    "identity drift",
+    "skin-tone shift",
+    "inconsistent head scale across cast",
+    "unrequested head tilt",
+    "cropped hair crown",
+    "pasted head or neck seam",
+    "unrequested logo or text",
+    "watermark"
+  ]
+}

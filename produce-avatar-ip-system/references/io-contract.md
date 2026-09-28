@@ -1,6 +1,6 @@
 # Input and Output Contract
 
-Use this reference to turn an informal request into a reproducible production job. Copy `assets/templates/avatar-project-brief.yaml` into the task output directory and fill it progressively; do not block on fields that can safely be inferred from supplied references.
+Use this reference to turn an informal request into a reproducible production job. Copy `assets/templates/avatar-project-brief.yaml` and `assets/templates/ip-template-selection.example.json` into the task output directory and fill them progressively; do not block on fields that can safely be inferred from supplied references. The IP template is the selected parameter stack, not a fixed example character image.
 
 ## Input priority
 
@@ -55,8 +55,9 @@ Never pass a bundle of images without assigning roles. Record each reference as 
 - `prop_source`: topology, visible faces, label/screen placement, grip;
 - `background_source`: gradient, atmosphere, and decoration;
 - `motion_source`: timing and action only, never identity unless explicitly intended.
+- `signature_look_source`: exact personality-bearing outfit, accessories, palette hierarchy, and attitude.
 
-One image may hold several roles, but state them independently.
+One image may hold several roles, but state them independently. Write the map to `brief/reference-role-map.yaml`. A composition source may not override the identity source, and a signature-look source must not be reduced to a generic style adjective.
 
 ## Stage outputs
 
@@ -72,6 +73,8 @@ Each numbered stage is an explicit review boundary. Write the approval decision 
 
 ### 2. Identity package
 
+- one anchor-persona review board containing source of truth, neutral construction candidate, and signature-look candidate when applicable;
+- an axis-scoped approval receipt for the anchor pair;
 - one lossless master per persona;
 - normalized transparent/chroma working source;
 - persona identity card;
@@ -118,7 +121,12 @@ Each numbered stage is an explicit review boundary. Write the approval decision 
 avatar-ip-project/
   brief/
     avatar-project-brief.yaml
+    ip-template-selection-p01.json
+    ip-template-selection-p02.json
+    ip-template-catalog.snapshot.json
     prompt-contract.yaml
+    reference-role-map.yaml
+    persona-p01.yaml
   sources/
     identity/
     style/
@@ -137,6 +145,7 @@ avatar-ip-project/
     motion/
   candidates/
   review/
+    approval-receipt-base_ip_review.yaml
     contact-sheets/
     frames/
     qa/
@@ -179,6 +188,7 @@ Never log tokens, signed upload URLs, cookies, or provider credentials.
 The job is complete only when:
 
 - the user approved the base direction/identity, modular system, scenes, and representative motion at their separate gates;
+- the anchor persona passed neutral construction and signature-look validation, with an approval receipt, before cast expansion;
 - every promised matrix cell exists once;
 - approved identity/style/anchors remain stable;
 - transparent and background-composed outputs are correctly distinguished;

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">可组合的 IP 形象模板栈</title>
+  <desc id="desc">用户想法经过独立选择的设计维度，被解析为分阶段提示词和可审阅资产。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0c1024"/><stop offset="1" stop-color="#171238"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#47d7ff"/><stop offset="1" stop-color="#9568ff"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="18" flood-color="#000" flood-opacity=".28"/></filter>
+  </defs>
+  <rect width="1440" height="900" rx="32" fill="url(#bg)"/>
+  <text x="80" y="82" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="40" font-weight="700">IP 模板 = 可组合参数，不是固定人物图</text>
+  <text x="80" y="124" fill="#aeb9db" font-family="Inter,Arial,sans-serif" font-size="21">任何 Agent 都能用同一组选择 ID，解析出一致的阶段合同。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="80" y="182" width="250" height="566" rx="28" fill="#171d3a" stroke="#34426f"/>
+    <rect x="1110" y="182" width="250" height="566" rx="28" fill="#171d3a" stroke="#34426f"/>
+  </g>
+  <text x="115" y="236" fill="#63ddff" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="700">用户想法</text>
+  <text x="115" y="292" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700">“可爱、酷、</text>
+  <text x="115" y="330" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700">潮流，不要</text>
+  <text x="115" y="368" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="700">太拟人”</text>
+  <line x1="115" y1="414" x2="295" y2="414" stroke="#34426f"/>
+  <text x="115" y="457" fill="#aeb9db" font-family="Inter,Arial,sans-serif" font-size="18">想法会被拆解为</text>
+  <text x="115" y="484" fill="#aeb9db" font-family="Inter,Arial,sans-serif" font-size="18">明确的可控参数。</text>
+  <text x="115" y="541" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="18">不会隐式假设身体、</text>
+  <text x="115" y="570" fill="#fff" font-family="Inter,Arial,sans-serif" font-size="18">穿搭、性别或镜头。</text>
+
+  <g font-family="Inter,Arial,sans-serif">
+    <text x="390" y="178" fill="#fff" font-size="22" font-weight="700">独立模板维度</text>
+    <text x="565" y="178" fill="#9da9cd" font-size="14">英文小写项为稳定模板 ID</text>
+    <g fill="#20294d" stroke="#495987">
+      <rect x="390" y="216" width="300" height="82" rx="18"/><rect x="720" y="216" width="300" height="82" rx="18"/>
+      <rect x="390" y="318" width="300" height="82" rx="18"/><rect x="720" y="318" width="300" height="82" rx="18"/>
+      <rect x="390" y="420" width="300" height="82" rx="18"/><rect x="720" y="420" width="300" height="82" rx="18"/>
+      <rect x="390" y="522" width="300" height="82" rx="18"/><rect x="720" y="522" width="300" height="82" rx="18"/>
+      <rect x="390" y="624" width="300" height="82" rx="18"/><rect x="720" y="624" width="300" height="82" rx="18"/>
+    </g>
+    <g fill="#7ce4ff" font-size="16" font-weight="700">
+      <text x="416" y="247">风格</text><text x="746" y="247">头身比</text>
+      <text x="416" y="349">性别呈现</text><text x="746" y="349">身体结构</text>
+      <text x="416" y="451">脸型</text><text x="746" y="451">发型轮廓</text>
+      <text x="416" y="553">服饰类别</text><text x="746" y="553">穿戴 + 道具</text>
+      <text x="416" y="655">配色</text><text x="746" y="655">构图</text>
+    </g>
+    <g fill="#fff" font-size="17">
+      <text x="416" y="276">cute-collectible-3d</text><text x="746" y="276">cute-large-head-upper-body</text>
+      <text x="416" y="378">androgynous-neutral</text><text x="746" y="378">compact-neutral</text>
+      <text x="416" y="480">rounded-square</text><text x="746" y="480">sculpted-bob-undercut</text>
+      <text x="416" y="582">neo-street-tech</text><text x="746" y="582">none / none</text>
+      <text x="416" y="684">cobalt-ultraviolet</text><text x="746" y="684">neutral-front-upper-body</text>
+    </g>
+  </g>
+
+  <path d="M335 465H373" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/><path d="M366 454l14 11-14 11" fill="none" stroke="#7ce4ff" stroke-width="5"/>
+  <path d="M1038 465h54" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/><path d="M1085 454l14 11-14 11" fill="none" stroke="#9c75ff" stroke-width="5"/>
+
+  <text x="1144" y="236" fill="#9c75ff" font-family="Inter,Arial,sans-serif" font-size="20" font-weight="700">阶段解析器</text>
+  <g font-family="Inter,Arial,sans-serif" font-size="18" text-anchor="middle">
+    <rect x="1144" y="272" width="182" height="58" rx="14" fill="#242b50"/><text x="1235" y="308" fill="#fff">方向探索</text>
+    <rect x="1144" y="348" width="182" height="72" rx="14" fill="#193b52" stroke="#47d7ff"/><text x="1235" y="378" fill="#fff">基础人物</text><text x="1235" y="402" fill="#80e7ff" font-size="14">强制 T 恤 + 正视</text>
+    <rect x="1144" y="438" width="182" height="58" rx="14" fill="#242b50"/><text x="1235" y="474" fill="#fff">标志性造型</text>
+    <rect x="1144" y="514" width="182" height="58" rx="14" fill="#242b50"/><text x="1235" y="550" fill="#fff">完整形象系统</text>
+    <rect x="1144" y="590" width="182" height="58" rx="14" fill="#242b50"/><text x="1235" y="626" fill="#fff">场景 + 动画</text>
+  </g>
+  <rect x="1144" y="675" width="182" height="42" rx="21" fill="url(#accent)"/><text x="1235" y="702" fill="#0c1024" font-family="Inter,Arial,sans-serif" font-size="16" font-weight="800" text-anchor="middle">提示词回执</text>
+
+  <text x="80" y="827" fill="#aeb9db" font-family="Inter,Arial,sans-serif" font-size="18">每次只改一个 ID → 只审一个轴 → 锁定已确认身份和其他参数。</text>
+</svg>

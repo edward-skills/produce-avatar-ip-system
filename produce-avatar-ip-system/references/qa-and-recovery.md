@@ -22,11 +22,22 @@ Run visual review before technical checks. A file can satisfy dimensions and sti
 
 ### Identity gate
 
+- The board includes the original labeled source of truth, not only generated candidates.
 - Persona is recognizable against its source of truth.
+- The highest-resolution identity source was supplied directly; composition references did not redefine the face.
 - All personas share camera, material, lighting, stylization, visual age range, and crop.
 - Hair crown, eye line, chin, neck base, apparent face width, and head scale align.
 - Skin tone is intentional and not contaminated by hair or glow color.
 - Full head is structurally complete; no missing crown or hollow under hair.
+- For the anchor persona, both the neutral construction master and the signature-look validation read as the same person.
+
+### Approval gate
+
+- The review board labels `SOURCE OF TRUTH`, candidate type, and any `SUPERSEDED/REJECTED` image visibly.
+- Identity, style/material, composition/body, and signature-look axes are reviewed independently.
+- A detail-size and real-product-size view exist.
+- An approval receipt records exact assets, approved axes, pending/rejected axes, and next allowed action.
+- No candidate is promoted and no cast/matrix expansion starts from an ambiguous “OK.”
 
 ### Static asset gate
 
@@ -120,6 +131,12 @@ Use `scripts/build_review_sheet.py` to compare a matrix. Review large enough to 
 | Symptom | Likely cause | Response |
 | --- | --- | --- |
 | Repeated male/female silhouette or lost persona | Too many variables were requested in one generation | Return to identity-only generation; approve each persona before variants. |
+| Neutral base is technically standardized but the user says it is a different person | Identity and composition references were conflated, or a derivative became the only source | Reopen the base gate; use the original high-resolution identity directly and mark the front-view image composition-only. Invalidate dependent assets. |
+| User asks why the plain T-shirt lost the original cool/style language | The construction base was shown without its role or paired signature look | Label it `construction-only / not final outfit` and show the source plus standardized signature-look validation on the same board. |
+| First modular outfit looks sporty, armored, or unrelated to the supplied fashion | A loose category name replaced the exact signature outfit | Reconstruct the supplied signature outfit first; lock silhouette, layers, hardware, accessories, and dominant/secondary/accent area before derived outfits. |
+| “OK” was interpreted as approval of identity, body, clothing, and the whole cast | Approval axes and reviewed assets were not recorded | Revert unproven promotions, create an approval receipt, and ask only about unresolved axes. |
+| Head roll or three-quarter construction propagates through the cast | A tilted identity/style source was reused as composition truth | Use a separate front-view composition reference; lock zero roll, level eyes, and centered nose-mouth-chin-neck while keeping the original identity source direct. |
+| Male torso reads feminine or its head looks smaller than the cast | Body construction and apparent scale were not contracted separately | Define chest plane, shoulder/head ratio, torso taper, neck, arms, and garment drape; compare apparent face/head scale at product size. |
 | Head sizes still look unequal despite equal bounds | Hair volume or face width differs | Align eye/chin/face-width anchors and normalize apparent subject scale mechanically. |
 | Head/body seam or floating neck | Layer replacement used for a final render | Regenerate the entire upper body as one continuous 3D model. |
 | Character becomes more photoreal while making it “cool” | The model interprets age/sharpness as realism | Supply an approved cast member as the stylization reference; keep simplified nose, eye ratio, and soft material explicit. |
@@ -145,3 +162,4 @@ Use `scripts/build_review_sheet.py` to compare a matrix. Review large enough to 
 - Regenerate an entire row only when the shared scene/outfit prompt is wrong.
 - Regenerate the whole matrix only when the upstream identity, material, anchors, or accepted art direction changed.
 - Never overwrite the last approved source before the replacement passes. Keep candidate and approved states distinct.
+- When identity drift is found after downstream work started, mark every dependent asset rejected or superseded; do not salvage its outfit, scene, or motion as a new source.

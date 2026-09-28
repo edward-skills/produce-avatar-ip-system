@@ -1,0 +1,43 @@
+schema_version: "1.0"
+project: avatar-ip-project
+anchor_persona: p01
+
+references:
+  - id: source-p01-hero
+    path_or_node: ""
+    roles:
+      identity_source: true
+      style_source: true
+      composition_source: false
+      signature_look_source: true
+      outfit_source: true
+    role_notes:
+      identity_source: "Exact person: face, features, skin, hair, visual age, stylization."
+      style_source: "Material, lighting, proportion, rendering language."
+      signature_look_source: "Exact outfit, accessories, palette hierarchy, and attitude."
+    known_defects_not_to_copy:
+      - "Example: head roll or clipped crown"
+
+  - id: composition-front-template
+    path_or_node: ""
+    roles:
+      identity_source: false
+      style_source: false
+      composition_source: true
+    role_notes:
+      composition_source: "Camera, zero head roll, eye line, crop, headroom, shoulders, and torso scale only."
+    forbidden_transfer:
+      - face
+      - eyes
+      - nose
+      - mouth
+      - skin
+      - hair
+      - outfit
+      - material
+
+role_precedence:
+  identity: source-p01-hero
+  style: source-p01-hero
+  composition: composition-front-template
+  signature_look: source-p01-hero

@@ -2,6 +2,8 @@
 
 Style is an upstream contract. Select or define it before identity approval. Switching style after identity approval creates a new `style_version` and requires new identity masters; do not mix a realistic head with a chibi body or keep editing an old derivative until it vaguely resembles the new direction.
 
+The canonical machine-readable style and proportion options live in `assets/templates/ip-template-catalog.json`. Read [ip-template-system.md](ip-template-system.md) and choose style and proportion separately. A style preset is not a fixed face, hairstyle, outfit, gender, or character image.
+
 ## Style token schema
 
 Record these fields in `prompt-contract.yaml`:
@@ -21,6 +23,20 @@ Record these fields in `prompt-contract.yaml`:
 | `negative_style` | Drift patterns to exclude |
 
 Identity tokens—face contour, hair silhouette, skin tone, eye/brow shape—remain separate. A style preset must not define a specific ethnicity, gender, or brand identity.
+
+## Translate subjective words into separate controls
+
+Do not let one adjective change every axis. Record these user-facing controls independently:
+
+| User intent | Change by default | Do not change unless requested |
+| --- | --- | --- |
+| `cool / trendy` | hair silhouette, outfit silhouette, accessories, hardware, palette contrast, attitude | realism, facial anatomy, visual age, head/body ratio |
+| `cuter` | head/body ratio, eye scale, cheek/jaw softness, compact torso | gender presentation, identity, signature outfit |
+| `more Q / chibi` | use/version the Q preset and regenerate the anchor identity | merely enlarge the head on a realistic torso |
+| `more real` | feature detail, anatomy, skin/hair/fabric material, lighting | celebrity likeness or unapproved identity changes |
+| `more premium` | material separation, hardware restraint, lighting, seam/detail discipline | automatic dark grade, hard armor, excessive gloss |
+
+When the user asks for “cool but cute,” keep the selected cute/realism contract stable and express coolness through fashion and attitude. Show the resulting values on the direction board so later corrections do not silently change the wrong axis.
 
 ## Preset: `soft-anime-tech-3d`
 
@@ -150,3 +166,4 @@ When the user asks “make it cuter/more realistic/more Q”:
 - Background complexity does not exceed the subject style.
 - Motion amplitude matches the preset and target display size.
 - No matrix cell drifts toward another preset.
+- Subjective words were translated into explicit controls; fashion adjectives did not silently change realism or identity.

@@ -1,5 +1,29 @@
 schema_version: "1.0"
-prompt_revision: prompt-v1
+prompt_revision: prompt-v2
+
+template_system:
+  catalog: brief/ip-template-catalog.snapshot.json
+  selection: brief/ip-template-selection-p01.json
+  rule: "Resolve stage prompts from independent template IDs; do not treat a sample image as the template."
+  dimensions:
+    style: cute-collectible-3d
+    proportion: cute-large-head-upper-body
+    gender_presentation: androgynous-neutral
+    body_construction: compact-neutral
+    face_shape: rounded-square
+    hair: sculpted-bob-undercut
+    outfit: neo-street-tech
+    wearable: none
+    prop: none
+    palette: cobalt-ultraviolet
+    composition: neutral-front-upper-body
+
+reference_roles:
+  identity_source: ""
+  style_source: ""
+  composition_source: ""
+  signature_look_source: ""
+  rule: "Secondary references may transfer only their declared role and may never override identity."
 
 style:
   preset: soft-anime-tech-3d
@@ -13,6 +37,13 @@ style:
   lighting: "bright warm frontal studio key, restrained colored rim"
   expression: "friendly, competent, not childish"
   motion_amplitude: medium-high
+  user_facing_controls:
+    realism: stylized
+    cute_proportion: medium
+    fashion_attitude: ""
+    trend_axis: []
+    color_energy: ""
+    material_finish: ""
   negative_style:
     - photoreal pores
     - hard cyberpunk armor
@@ -28,6 +59,16 @@ identity:
     skin_tone: ""
     eye_brow_shape: ""
     visual_age: ""
+  direct_source_required: true
+  derivative_as_only_identity_source_forbidden: true
+
+body_construction:
+  chest_plane: ""
+  shoulder_width_relative_to_head: ""
+  torso_taper: ""
+  neck_length_width: ""
+  arm_thickness: ""
+  base_garment_drape: ""
 
 composition:
   aspect_ratio: "1:1"
@@ -58,6 +99,16 @@ wearable:
 outfit:
   design_reference: ""
   construction_lock: ""
+  signature_first: true
+  signature_silhouette: ""
+  signature_layers: []
+  signature_accessories: []
+  palette_area_roles:
+    dominant: ""
+    secondary: ""
+    accent: ""
+    emissive: ""
+  prohibited_reinterpretations: []
 
 prop:
   design_reference: ""

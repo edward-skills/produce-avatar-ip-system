@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-labelledby="title desc">
+  <title id="title">头像 IP 制作审批流程</title>
+  <desc id="desc">六个审批阶段，先验证代表角色的基础人物和标志性造型，再扩展角色群、模块、场景和动画。</desc>
+  <defs>
+    <linearGradient id="bg04" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0d1322"/><stop offset="1" stop-color="#182942"/></linearGradient>
+    <linearGradient id="pill04" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#72e8ff"/><stop offset="1" stop-color="#84a7ff"/></linearGradient>
+    <filter id="shadow04" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="12" stdDeviation="15" flood-color="#02050a" flood-opacity=".3"/></filter>
+    <style>
+      .t04{font:700 40px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#f8fbff}.s04{font:400 20px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#aebbd0}.h04{font:700 18px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#fff}.b04{font:400 16px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#cbd6e8}.p04{font:700 14px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#101a2d}.n04{font:600 17px -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;fill:#dce8ff}
+    </style>
+  </defs>
+  <rect width="1440" height="900" rx="32" fill="url(#bg04)"/>
+  <text x="72" y="82" class="t04">分阶段确认的头像 IP 制作流程</text>
+  <text x="72" y="122" class="s04">先锁定一个代表角色，再扩展人物、穿搭、场景和动画，避免错误被批量放大。</text>
+  <g filter="url(#shadow04)">
+    <rect x="72" y="190" width="196" height="278" rx="24" fill="#202b45" stroke="#3c4e70"/>
+    <rect x="292" y="174" width="196" height="310" rx="24" fill="#1c3659" stroke="#59b8ff" stroke-width="3"/>
+    <rect x="512" y="190" width="196" height="278" rx="24" fill="#202b45" stroke="#3c4e70"/>
+    <rect x="732" y="190" width="196" height="278" rx="24" fill="#202b45" stroke="#3c4e70"/>
+    <rect x="952" y="190" width="196" height="278" rx="24" fill="#202b45" stroke="#3c4e70"/>
+    <rect x="1172" y="190" width="196" height="278" rx="24" fill="#202b45" stroke="#3c4e70"/>
+  </g>
+  <g>
+    <text x="96" y="232" class="h04">1 · 方向探索</text><text x="96" y="276" class="b04">2–3 个差异明显的</text><text x="96" y="302" class="b04">风格方向，或采用</text><text x="96" y="328" class="b04">已有确认参考</text><rect x="96" y="400" width="148" height="34" rx="17" fill="url(#pill04)"/><text x="170" y="422" class="p04" text-anchor="middle">确认风格方向</text>
+    <text x="316" y="216" class="h04">2 · 代表角色双验证</text><text x="316" y="260" class="b04">身份源 + 基础人物</text><text x="316" y="286" class="b04">+ 标志性造型</text><line x1="316" y1="314" x2="464" y2="314" stroke="#4c6c94"/><text x="316" y="348" class="b04">分别确认身份、身体</text><text x="316" y="374" class="b04">比例和穿搭语言</text><rect x="316" y="418" width="148" height="34" rx="17" fill="#69efd0"/><text x="390" y="440" class="p04" text-anchor="middle">分轴审批回执</text>
+    <text x="536" y="232" class="h04">3 · 角色群</text><text x="536" y="276" class="b04">人物身份</text><text x="536" y="302" class="b04">+ 身体结构合同</text><text x="536" y="328" class="b04">+ 比例对比表</text><rect x="536" y="400" width="148" height="34" rx="17" fill="url(#pill04)"/><text x="610" y="422" class="p04" text-anchor="middle">确认角色群</text>
+    <text x="756" y="232" class="h04">4 · 模块系统</text><text x="756" y="276" class="b04">先还原标志性穿搭</text><text x="756" y="302" class="b04">再扩展配色、道具</text><text x="756" y="328" class="b04">穿戴与组合形象</text><rect x="756" y="400" width="148" height="34" rx="17" fill="url(#pill04)"/><text x="830" y="422" class="p04" text-anchor="middle">确认模块系统</text>
+    <text x="976" y="232" class="h04">5 · 可编辑场景</text><text x="976" y="276" class="b04">透明人物主体</text><text x="976" y="302" class="b04">+ 可编辑背景</text><text x="976" y="328" class="b04">+ 组合预览</text><rect x="976" y="400" width="148" height="34" rx="17" fill="url(#pill04)"/><text x="1050" y="422" class="p04" text-anchor="middle">确认场景</text>
+    <text x="1196" y="232" class="h04">6 · 动画</text><text x="1196" y="276" class="b04">先验证一个循环</text><text x="1196" y="302" class="b04">再批量生成</text><text x="1196" y="328" class="b04">+ 技术 QA</text><rect x="1196" y="400" width="148" height="34" rx="17" fill="url(#pill04)"/><text x="1270" y="422" class="p04" text-anchor="middle">确认动画样片</text>
+  </g>
+  <g stroke="#7f98bf" stroke-width="4" fill="none"><path d="M268 329h24"/><path d="M488 329h24"/><path d="M708 329h24"/><path d="M928 329h24"/><path d="M1148 329h24"/></g>
+  <g fill="#7f98bf"><path d="M284 321l12 8-12 8z"/><path d="M504 321l12 8-12 8z"/><path d="M724 321l12 8-12 8z"/><path d="M944 321l12 8-12 8z"/><path d="M1164 321l12 8-12 8z"/></g>
+  <rect x="72" y="548" width="1296" height="266" rx="26" fill="#121d30" stroke="#2e4668"/>
+  <text x="104" y="594" class="h04">代表角色双验证会阻止什么</text>
+  <circle cx="120" cy="644" r="8" fill="#ff7c8b"/><text x="144" y="651" class="n04">正视图正确，但已经换成另一个人的脸</text>
+  <circle cx="120" cy="690" r="8" fill="#ffcf6a"/><text x="144" y="697" class="n04">简单 T 恤基础人物，被误当成最终穿搭方向</text>
+  <circle cx="120" cy="736" r="8" fill="#83dcff"/><text x="144" y="743" class="n04">模糊的服饰标签，覆盖了原始标志性轮廓和配色层级</text>
+  <line x1="820" y1="620" x2="820" y2="762" stroke="#2e4668"/>
+  <text x="862" y="650" class="b04">不扩展角色群</text><text x="862" y="690" class="b04">不生成模块矩阵</text><text x="862" y="730" class="b04">不启动付费动画批次</text>
+  <rect x="1136" y="626" width="184" height="112" rx="20" fill="#263b5d" stroke="#69efd0"/>
+  <text x="1228" y="672" class="h04" text-anchor="middle">直到基础人物</text><text x="1228" y="704" class="h04" text-anchor="middle">与标志造型通过</text>
+</svg>

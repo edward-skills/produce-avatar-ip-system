@@ -2,22 +2,30 @@
 
 This file defines when the skill is ready for another user and another capable agent. It is agent-neutral: a tool name is historical evidence or a routing hint, never an assumption that every host exposes the same surface.
 
+## Cross-agent discovery contract
+
+- The portable entrypoint is the package-root `SKILL.md`. Codex, Claude Code, Cursor, OpenCode, and other filesystem-Skill hosts must load the same entrypoint and relative resources.
+- `agents/openai.yaml` is optional OpenAI UI metadata, not a runtime dependency. A host that ignores it must still be able to execute the complete workflow from `SKILL.md`.
+- Keep every package link relative. Never require the original repository checkout, a machine-specific absolute path, chat history, or a Codex-only tool name to read the workflow.
+- Route by capability: image generation/editing, external model discovery, Figma mutation, raster processing, and video inspection. If a host lacks one capability, preserve upstream outputs and record an honest partial handoff.
+- A cross-agent release must pass package discovery and copy-install with the public `skills` CLI for at least Codex, Claude Code, Cursor, and OpenCode, plus the readiness scenarios below. Installation success does not replace behavioral or media QA.
+
 ## Start from a freeform idea
 
 Accept a short input such as “做一个可靠但可爱的财务数字员工，绿色系，后面要做提醒和成功动画.” Do not require the user to fill every field before work starts.
 
-1. Copy `../assets/templates/avatar-project-brief.yaml` into a task-specific output directory.
+1. Run `../scripts/init_avatar_project.py` or copy the project brief, template catalog, and one template-selection file per persona into a task-specific output directory.
 2. Extract the concept, audience, use case, desired personality, explicit style words, colors, prohibited motifs, persona count, and requested deliverables.
 3. Propose low-risk defaults for missing presentation details. Mark them as proposals, not user facts.
-4. If style is underspecified, offer 2–3 materially different presets from `style-presets.md` such as cute, chibi/Q, stylized 3D, semi-real, or realistic. Avoid changing only adjectives while keeping the same visual direction.
-5. Produce the smallest reviewable sample at each stage before multiplying a matrix or spending on a batch.
+4. If style is underspecified, offer 2–3 materially different parameter stacks from `ip-template-system.md`; label every differing template ID. Avoid changing only adjectives while keeping the same visual direction.
+5. Produce the smallest reviewable sample at each stage before multiplying a matrix or spending on a batch. For base IP, this means one anchor persona shown as source + neutral construction master + signature-look validation when applicable.
 
 ## Non-negotiable stage machine
 
 | State | Produce | Required evidence | Transition |
 | --- | --- | --- | --- |
 | `idea_received` | Filled brief and proposed matrix | User idea plus stated assumptions | Generate 2–3 base directions |
-| `base_ip_review` | Concept sheet and identity master candidates | Style/material lock and identity anchors | User approves one direction and each persistent identity |
+| `base_ip_review` | Concept sheet; anchor source/neutral/signature review; then cast candidates | Axis-scoped approval receipt, style/material lock, identity/body anchors | User approves the anchor pair and then each persistent identity |
 | `modular_review` | Palette tokens, outfits, wearables, props, and representative combinations | Only approved identity sources were used | User approves the modular system/matrix |
 | `scene_review` | Transparent scene subjects, separate editable backgrounds, composed previews | Alpha/background checks and scene contact sheet | User approves scenes and source frames |
 | `motion_review` | One representative loop plus first/mid/last frames and technical report | Exact model/action and true first-frame fields | User approves the representative motion and batch budget |
@@ -46,10 +54,15 @@ Tool absence may narrow delivery, but it must not corrupt provenance. Do not cal
 Keep these files current so work can move between agents without replaying chat history:
 
 - `brief/avatar-project-brief.yaml`: requested scope, assumptions, matrix, budget, and targets;
+- `brief/ip-template-catalog.snapshot.json`: exact reusable option definitions used by this project;
+- `brief/ip-template-selection-<id>.json`: independent style, proportion, presentation, body, face, hair, outfit, wearable, prop, palette, and composition selection for each persona;
 - `brief/prompt-contract.yaml`: style, identity, composition, background, prop, and motion locks;
+- `brief/reference-role-map.yaml`: source roles, precedence, known defects, and forbidden transfers;
+- `brief/persona-<id>.yaml`: immutable face/hair identity, body construction, composition, and signature look;
 - `manifests/generation-log.jsonl`: exact surface, action, model disclosure, request, prompt revision, inputs, cost, output, and QA state;
 - `manifests/asset-manifest.csv`: logical asset IDs, files, variants, approval, provenance, and delivery status;
 - an acceptance ledger: current state, approved source IDs, approved/rejected notes, active correction, and next allowed action;
+- stage approval receipts: exact board, assets, axes, user wording, promotion, and next allowed action;
 - `review/`: contact sheets, representative frames, technical reports, and QA result;
 - `approved/` versus `candidates/`: never mix them.
 
@@ -67,13 +80,14 @@ Use paths relative to the task output directory in the package. External Figma n
 
 The skill is ready only if another agent can satisfy all of these without the source thread:
 
-1. **Sparse idea:** turn one sentence into a filled brief, 2–3 direction proposals, and a base-IP review checkpoint.
+1. **Sparse idea:** turn one sentence into a filled brief, reference-role map, 2–3 labeled parameter stacks, resolved prompt receipts, and a base-IP review checkpoint.
 2. **Style switch:** change cute/chibi/stylized/semi-real/realistic by versioning the style contract and regenerating the identity master before derivatives.
-3. **Modular expansion:** from one approved identity, make palette, outfit, wearable, prop, and combination assets without identity drift.
-4. **Editable scene:** deliver a clean transparent subject, a separately replaceable background, and an exact composed preview.
-5. **Motion:** animate only an approved composed frame, validate one loop, and wait for approval before a paid/full batch.
-6. **Provenance:** distinguish host ImageGen with an undisclosed model from explicit Aident/Fal endpoints.
-7. **Resume:** continue from the acceptance ledger at the next unapproved stage without asking the user to repeat already recorded decisions.
-8. **Graceful degradation:** when a capability is missing, deliver the valid upstream artifacts and clearly mark what remains pending instead of claiming completion.
+3. **Anchor identity:** preserve one supplied person through a resolver-forced front-facing neutral construction master and signature-look validation without conflating identity, camera, clothing, presentation, or body geometry.
+4. **Modular expansion:** from the approved anchor/cast, reconstruct the signature outfit before making palette, derived outfit, wearable, prop, and combination assets without identity drift.
+5. **Editable scene:** deliver a clean transparent subject, a separately replaceable background, and an exact composed preview.
+6. **Motion:** animate only an approved composed frame, validate one loop, and wait for approval before a paid/full batch.
+7. **Provenance:** distinguish host ImageGen with an undisclosed model from explicit Aident/Fal endpoints.
+8. **Resume:** continue from the acceptance ledger and approval receipts at the next unapproved stage without asking the user to repeat already recorded decisions.
+9. **Graceful degradation:** when a capability is missing, deliver the valid upstream artifacts and clearly mark what remains pending instead of claiming completion.
 
 Passing these scenarios means the workflow is reusable. It does not mean every agent has every connector or provider authorization; runtime capability and user approval must still be checked on each job.
