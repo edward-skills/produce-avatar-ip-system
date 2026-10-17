@@ -1,6 +1,6 @@
 # Historical MIT license — earlier versions only
 
-Applies to versions at or before 4fb5900d189252ea61129a5d4e32bf4507937bd5. This record does not license the current version. Previously granted permissions are not withdrawn by this update.
+Records the MIT text supplied with baseline revision 4fb5900d189252ea61129a5d4e32bf4507937bd5. It applies only to revisions actually distributed under those terms, not automatically to every earlier revision or the current version. Previously granted permissions are not withdrawn by this update.
 
 MIT License
 
