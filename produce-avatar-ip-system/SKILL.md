@@ -4,7 +4,7 @@ description: Design and produce a reusable avatar or digital-employee IP system 
 metadata:
   version: "1.2.0"
   license: Invocation-Only-1.0
-  repository: https://github.com/Edward-J-create/produce-avatar-ip-system
+  repository: https://github.com/edward-skills/produce-avatar-ip-system
 license: Proprietary. LICENSE.md contains the invocation-only terms.
 ---
 

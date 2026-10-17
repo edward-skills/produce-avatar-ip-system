@@ -83,14 +83,14 @@
 可移植 Skill 包位于 [`produce-avatar-ip-system/`](produce-avatar-ip-system/)。
 
 ```bash
-npx skills add Edward-J-create/produce-avatar-ip-system \
+npx skills add edward-skills/produce-avatar-ip-system \
   --skill produce-avatar-ip-system
 ```
 
 为机器上已配置的 Agent 全局安装：
 
 ```bash
-npx skills add Edward-J-create/produce-avatar-ip-system \
+npx skills add edward-skills/produce-avatar-ip-system \
   --skill produce-avatar-ip-system \
   --global \
   --agent codex claude-code cursor opencode \

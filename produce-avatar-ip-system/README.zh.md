@@ -39,7 +39,7 @@ python scripts/assemble_avatar_prompt.py \
 安装：
 
 ```bash
-npx skills add Edward-J-create/produce-avatar-ip-system \
+npx skills add edward-skills/produce-avatar-ip-system \
   --skill produce-avatar-ip-system
 ```
 

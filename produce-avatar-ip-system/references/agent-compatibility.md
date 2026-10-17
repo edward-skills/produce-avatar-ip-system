@@ -5,13 +5,13 @@ The portable entrypoint is `SKILL.md` in the complete **produce-avatar-ip-system
 ## Host setup
 
 ```bash
-npx skills add Edward-J-create/produce-avatar-ip-system --skill produce-avatar-ip-system
+npx skills add edward-skills/produce-avatar-ip-system --skill produce-avatar-ip-system
 ```
 
 Choose the host in the installer. An optional explicit project installation is:
 
 ```bash
-npx skills add Edward-J-create/produce-avatar-ip-system --skill produce-avatar-ip-system \
+npx skills add edward-skills/produce-avatar-ip-system --skill produce-avatar-ip-system \
   --agent codex claude-code cursor opencode
 ```
 
@@ -27,7 +27,7 @@ A portable request for a personal Agent:
 
 ```text
 Obtain the complete produce-avatar-ip-system Skill package from
-https://github.com/Edward-J-create/produce-avatar-ip-system.
+https://github.com/edward-skills/produce-avatar-ip-system.
 Read SKILL.md and the referenced modules needed for my task; do not replace the
 workflow with a summary or omit its scripts, templates, assets and checks.
 Use your available capabilities and authorized accounts to carry out my request.
