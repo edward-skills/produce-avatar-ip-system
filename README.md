@@ -1,8 +1,11 @@
 # Produce Avatar IP System
 
+> **Current use / 当前授权：Invocation-only.** 可安装、调用并使用生成结果；不授权转售、再分发或发布修改版 Skill。Third-party/font rights and historical MIT grants are retained. [License](produce-avatar-ip-system/LICENSE.md) · [Agent setup, Muse AI & Grok Bot](produce-avatar-ip-system/references/agent-compatibility.md) · [Version boundary](produce-avatar-ip-system/references/licensing-history.md)
+
+
 English | [Chinese](README.zh.md)
 
-An open, cross-agent Skill for turning a user's idea into a reusable avatar or digital-employee IP system: identity masters, palettes, outfits, wearables, props, combination renders, editable scenes, and loop-video production packages.
+An invocation-only, cross-agent Skill for turning a user's idea into a reusable avatar or digital-employee IP system: identity masters, palettes, outfits, wearables, props, combination renders, editable scenes, and loop-video production packages.
 
 The workflow is approval-gated:
 
@@ -127,4 +130,4 @@ The validator checks package structure, frontmatter, relative links, JSON templa
 
 ## License
 
-MIT. Provider, product, and model names remain trademarks of their respective owners. Generated-asset rights and provider terms must be evaluated for each production job.
+Invocation-only; see LICENSE.md and the linked licensing history. Provider, product, and model names remain trademarks of their respective owners. Generated-asset rights and provider terms must be evaluated for each production job.

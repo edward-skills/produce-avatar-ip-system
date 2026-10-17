@@ -1,5 +1,10 @@
 # Notice
 
+## Current permission (2026-10-17)
+
+First-party Skill materials use [LICENSE.md](LICENSE.md). Earlier revisions at or before 4fb5900d189252ea61129a5d4e32bf4507937bd5 were published with an MIT license. This update does not withdraw those historical grants; their original terms remain recorded in licenses/HISTORICAL-MIT.md and Git history. Third-party fonts, trademarks and user/client assets retain their own rights.
+
+
 ## Source privacy
 
 The private Figma source file, source references, request IDs, signed URLs, credentials, and client/user assets used to derive this workflow are not part of this repository. The images under `docs/images/` are selected generated showcase outputs authorized for this public preview, including one source production example and one later quality-validation example; they contain no private Figma file, client source art, or credentials. The included templates, prompts, QA rules, and historical aggregate call counts are reusable process knowledge, not redistributable source media.

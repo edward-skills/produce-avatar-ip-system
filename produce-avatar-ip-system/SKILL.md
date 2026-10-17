@@ -3,11 +3,16 @@ name: produce-avatar-ip-system
 description: Design and produce a reusable avatar or digital-employee IP system across cute, chibi, stylized 3D, semi-real, or realistic directions, including identity masters, modular outfits and props, editable backgrounds, scene variants, loop videos, Figma components, manifests, and production QA. Use for character-system creation or refinement; do not use for application-code integration, pull requests, or product UI implementation.
 metadata:
   version: "1.2.0"
-  license: MIT
+  license: Invocation-Only-1.0
   repository: https://github.com/Edward-J-create/produce-avatar-ip-system
+license: Proprietary. LICENSE.md contains the invocation-only terms.
 ---
 
+
 # Produce Avatar IP System
+
+For host setup, Meta Muse AI / Grok Bot capability boundaries and current usage rights, see [cross-agent use](references/agent-compatibility.md). Follow the production workflow below unchanged.
+
 
 Turn a visual brief into a coherent character system rather than a pile of unrelated generations. Preserve approved identities and art direction while varying only the intended axis: palette, outfit, prop, background, scene, pose, expression, or motion.
 

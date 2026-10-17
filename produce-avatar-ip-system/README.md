@@ -1,5 +1,8 @@
 # Produce Avatar IP System Skill
 
+> **Current use / 当前授权：Invocation-only.** 可安装、调用并使用生成结果；不授权转售、再分发或发布修改版 Skill。Third-party/font rights and historical MIT grants are retained. [License](LICENSE.md) · [Agent setup, Muse AI & Grok Bot](references/agent-compatibility.md) · [Version boundary](references/licensing-history.md)
+
+
 This directory is the portable Agent Skill package. It turns an informal avatar or digital-employee idea into an approval-gated, reusable IP system with identity masters, palettes, outfits, wearables, props, combination renders, editable scenes, and optional loop videos.
 
 Start with [`SKILL.md`](SKILL.md). The required execution and approval contract is in [`portability-and-readiness.md`](references/portability-and-readiness.md); exact historical tool/model evidence is in [`tool-provenance.md`](references/tool-provenance.md).
@@ -34,4 +37,4 @@ npx skills add Edward-J-create/produce-avatar-ip-system \
 
 The package has been smoke-tested through the public `skills` CLI for Codex, Claude Code, Cursor, and OpenCode. All hosts load the same `SKILL.md`, relative references, templates, and scripts. The optional `agents/openai.yaml` improves OpenAI-hosted discovery but is not required by other agents.
 
-License: MIT. No source character artwork or private Figma file is bundled.
+License: Invocation-Only 1.0 (see LICENSE.md). No source character artwork or private Figma file is bundled.

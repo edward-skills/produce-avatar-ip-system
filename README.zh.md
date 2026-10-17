@@ -1,5 +1,8 @@
 # 可复用头像与数字员工 IP 系统
 
+> **Current use / 当前授权：Invocation-only.** 可安装、调用并使用生成结果；不授权转售、再分发或发布修改版 Skill。Third-party/font rights and historical MIT grants are retained. [License](produce-avatar-ip-system/LICENSE.md) · [Agent setup, Muse AI & Grok Bot](produce-avatar-ip-system/references/agent-compatibility.md) · [Version boundary](produce-avatar-ip-system/references/licensing-history.md)
+
+
 [English](README.md) | 简体中文
 
 这是一个可跨 Agent 使用的开源 Skill，用于把用户的一句话想法逐步制作成可复用的头像或数字员工 IP 系统，包括人物身份母版、配色、服饰、穿戴、道具、组合形象、可编辑场景和循环动画制作包。
@@ -127,4 +130,4 @@ python3 scripts/validate_package.py
 
 ## 许可证
 
-MIT。服务商、产品和模型名称仍属于各自权利方。每次实际制作都需要分别确认生成资产权利和服务商条款。
+当前为仅调用许可，历史授权见对应记录。服务商、产品和模型名称仍属于各自权利方。每次实际制作都需要分别确认生成资产权利和服务商条款。

@@ -1,5 +1,8 @@
 # Produce Avatar IP System Skill
 
+> **Current use / 当前授权：Invocation-only.** 可安装、调用并使用生成结果；不授权转售、再分发或发布修改版 Skill。Third-party/font rights and historical MIT grants are retained. [License](LICENSE.md) · [Agent setup, Muse AI & Grok Bot](references/agent-compatibility.md) · [Version boundary](references/licensing-history.md)
+
+
 这是可直接安装的 Agent Skill 包。它可以从用户的一句话想法开始，经过独立确认节点，逐步产出：
 
 1. 基础 IP 方向和身份母版；
@@ -40,4 +43,4 @@ npx skills add Edward-J-create/produce-avatar-ip-system \
 
 该包已通过公开 `skills` CLI 对 Codex、Claude Code、Cursor 和 OpenCode 做安装冒烟测试。所有宿主共用同一份 `SKILL.md`、相对路径引用、模板和脚本；可选的 `agents/openai.yaml` 只增强 OpenAI 宿主的发现与界面展示，不是其他 Agent 的运行依赖。
 
-MIT 许可证。仓库不包含原始人物素材、私有 Figma 文件、密钥或生成资产。
+当前为仅调用许可；历史 MIT 版本见授权记录。仓库不包含原始人物素材、私有 Figma 文件、密钥或生成资产。
